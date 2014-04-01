@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+        <head>
+		<meta name="viewport" content="width=320;user-scalable=no"/>
+                <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+                <title>Feed Screen</title>
+                <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+                <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+                <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+                <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+                <script type="text/javascript">
+                	function transition(){
+                		window.location = "some2.html";
+                	}
+
+                        function deleteUser(){
+                                $.post("https://web.engr.illinois.edu/~mtmarsh2/deleteuser.php", function(sql){
+                                        document.write(sql);
+                                });
+                                //window.location="index.html";
+                        }
+
+                        function changePassword(){
+                                $.post("https://web.engr.illinois.edu/~mtmarsh2/userupdate.php");
+                                window.location="updatePassword.html";
+                        }
+                </script>
+	</head>
+
+	<body>
+		<h1>Feed Screen! Woot!</h1>
+		<input type="button" value="Create Poll" id="changeButton" onClick="transition()"> 
+                <input type="button" value="Delete User" id="deleteButton" onclick="deleteUser()"/> 
+                <input type="button" value="Change Password" id="changePasswordButton" onclick="changePassword()"/> 
+	</body>
+</html>

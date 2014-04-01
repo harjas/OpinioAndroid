@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=320;user-scalable=no"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>UserLogin</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/login.js"></script>
+    </head>
+
+    <body onload="init()">
+        <div id="loginPage" data-role="page">
+            
+            <!--Title/Logo goes here-->
+            <div data-role="header">
+                <h1>Opinio</h1>
+            </div>
+
+            <!--LoginForm-->
+            <div data-role="content">
+                <form id="loginForm">
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="username"> Username: </label>
+                        <input type="text" name="username" id="username" value="" placeholder="Username"/>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="password"> Password: </label>
+                        <input type="password" name="password" id="password" value="" placeholder="Password"/>
+                    </div>
+
+                    <input type="submit" value="Login" id="submitButton">
+                    
+                </form>
+            </div>
+            <!--End of login form-->
+            <div data-role="registerButton">
+                <input type="button" value="Register" id="registerButton" onclick="register()">
+            </div> 
+        </div>
+    </body>
+</html>
