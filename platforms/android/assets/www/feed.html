@@ -26,6 +26,23 @@
                         });
                 </script>
                 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+                <script type="text/javascript">
+                        $(document).on('pageinit', function(event){
+                          $('div.ui-page').on("swipeleft", function () {
+                            var nextpage = $(this).next('createpoll.html');
+                              if (nextpage.length > 0) {
+                                $.mobile.changePage(nextpage, "slide", false, true);
+                              }
+                          });
+
+                          $('div.ui-page').on("swiperight", function () {
+                            var prevpage = $(this).prev('div[data-role="page"]');
+                            if (prevpage.length > 0) {
+                              $.mobile.changePage(prevpage, { transition: "slide", reverse: true }, true, true);
+                            }
+                          });
+                        });
+                </script>
                 <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
                 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
@@ -46,6 +63,10 @@
                                 $.post("https://web.engr.illinois.edu/~mtmarsh2/userupdate.php");
                                 window.location="updatePassword.html";
                         }
+
+                        function follow(){
+                                window.location = "follow.html";
+                        } 
                 </script>
 	</head>
 
@@ -63,13 +84,13 @@
 
                         <div data-role="footer" class="nav-glyphish-example" data-theme="b" data-position="fixed">
                             <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-                            <ul>
-                                <li><a href="feed.html" id="friendfeed" data-icon="custom">Feed</a></li>
-                                <li><a href="createpoll.html" id="createpoll" data-icon="custom">Poll?</a></li>
-                                <li><a href="#" id="myfeed.html" data-icon="custom">Profile</a></li>
-                                <li><a href="#" id="popular.html" data-icon="custom">Popular</a></li>
-                                <li><a href="#" id="follow.html" data-icon="custom">Follow</a></li>
-                            </ul>
+                                    <ul>
+                                        <li><a href="feed.html" id="friendfeed" data-icon="custom">Feed</a></li>
+                                        <li><a href="createpoll.html" id="createpoll" data-icon="custom">Poll?</a></li>
+                                        <li><a href="myfeed.html" id="myfeed" data-icon="custom">Profile</a></li>
+                                        <li><a href="popular.html" id="popular" data-icon="custom">Popular</a></li>
+                                        <li><a id="follow" data-icon="custom" onclick="follow()">Follow</a></li>
+                                    </ul>
                             </div>
                         </div>
                 </div> 

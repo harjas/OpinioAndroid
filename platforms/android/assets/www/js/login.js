@@ -4,6 +4,7 @@ function init(){
 }
 
 function deviceReady(){
+	$(document).ready(function(e){
 	$("#loginForm").on("submit", function(e){
 		$("#submitButton",this).attr("disabled","disabled");
 		var u = $("#username",this).val();
@@ -28,6 +29,7 @@ function deviceReady(){
 		}
 		return false;
 	});
+});
 }
 
 function register(){

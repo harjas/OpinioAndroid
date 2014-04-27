@@ -1,46 +1,45 @@
-<!DOCTYPE HTML>
+<!DOCTYPE>
 <html>
-    <head>
-        <meta name="viewport" content="width=320;user-scalable=no"/>
+	<head>
+		<meta name="viewport" content="width=320;user-scalable=no"/>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <title>UserLogin</title>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <style type="text/css">
+        	#home{
+        		background-image: url("img/congruent_pentagon.png");
+        		background-repeat: repeat-x repeat-y;
+        	}
+
+        </style>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/login.js"></script>
-    </head>
+        <script type="text/javascript">
+        	function login(){
+        		window.location="login.html";
+        	}
 
-    <body onload="init()">
-        <div id="loginPage" data-role="page">
-            
-            <!--Title/Logo goes here-->
-            <div data-role="header">
-                <h1>Opinio</h1>
-            </div>
-
-            <!--LoginForm-->
-            <div data-role="content">
-                <form id="loginForm">
-
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="username"> Username: </label>
-                        <input type="text" name="username" id="username" value="" placeholder="Username"/>
-                    </div>
-
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="password"> Password: </label>
-                        <input type="password" name="password" id="password" value="" placeholder="Password"/>
-                    </div>
-
-                    <input type="submit" value="Login" id="submitButton">
-                    
-                </form>
-            </div>
-            <!--End of login form-->
-            <div data-role="registerButton">
-                <input type="button" value="Register" id="registerButton" onclick="register()">
-            </div> 
-        </div>
-    </body>
+        	function register(){
+        		window.location = "register.html";
+        	}
+        </script>
+	</head>
+	<body>
+		<div data-role="page" id="home">
+			<div data-role="header">
+				
+			</div>
+			<div data-role="content">
+					<h1 style="text-align:center">Opinio</h1>
+				<div class="center-wrapper">
+					
+				  	<a data-role="button" data-theme="b" onclick="login()">Login</a>
+				  	<a data-role="button" data-theme="c" onclick="register()">Register</a>
+				</div>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div>
+	</body>
 </html>
