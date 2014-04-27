@@ -11,8 +11,8 @@ function deviceReady(){
 		//document.write(u);
 		//document.write(p);
 		if(u!='' && p!=''){
-			$.post("https://web.engr.illinois.edu/~mtmarsh2/login.php",{username:u,password:p},function(res){ 
-				document.write(res);	
+			$.post("https://web.engr.illinois.edu/~opinio2014/login.php",{username:u,password:p},function(res){ 
+				//document.write(res);	
 				if(res[1]==='t'){
 					//$(":mobile-pagecontainer").pagecontainer("change","some.html",{transition:"slide"},false);
 					$.get("https://web.engr.illinois.edu/~mtmarsh2/practice.php",function(data){
@@ -31,7 +31,7 @@ function deviceReady(){
 }
 
 function register(){
-	window.location="register.html";
+	window.location="testcontacts.html";
 }
 
 //TODO: implement preAuth so user can remain logged in

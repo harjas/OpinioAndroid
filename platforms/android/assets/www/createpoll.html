@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=320;user-scalable=no"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Feed Screen</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
+        <script type="text/javascript" charset="utf-8" src="js/createpoll.js"></script>
+    </head>
+    
+    <body onload= "init()">
+        <div data-role="page" id="createPoll">
+            <div data-role="header">
+            </div>
+
+            <div data-role="content">
+                <form id="poll" data-theme="e">
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="question"> Question: </label>
+                        <input type="text" name="question" id="question" placeholder="Question"/>
+                    </div>
+                    <br>
+                    
+                    <ul id="options-list" data-role="listview" data-split-icon="delete" data-split-theme="d">
+                    </ul>
+                    
+                    <br>
+                    <div data-role="controlgroup" data-inline="true">
+                        <input type="button" id="add-image" value="Image"/>
+                        <input type="text" id="add-option-text" data-wrapper-class="controlgroup-textinput ui-btn" placeholder="Add Option?">
+                        
+                    </div>
+
+                    <input type="button" id="add-option-button" value="Add"/>
+                    <input type="submit" data-theme="b" value="Create Poll!" id="create-poll-button"/>
+                </form>
+            </div>
+
+            <div data-role="footer">
+            </div>
+        </div>
+    </body>
+</html>

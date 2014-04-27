@@ -19,43 +19,35 @@
                 var options = new ContactFindOptions();
                 options.filter = "";
                 options.multiple = true;
-                var fields = ["displayName"];
+                var fields = ["displayName","phoneNumbers"];
                 navigator.contacts.find(fields, onSuccess, onError, options);
             }
 
             // onSuccess: Get a snapshot of the current contacts
 
             var loaded = false;
+            var pnums = [];
 
 			// onSuccess: Get a snapshot of the current contacts
 			function onSuccess(contacts) {
-				$("#frame").html('<fieldset data-role="controlgroup"><legend>Select who you want to follow:</legend></fieldset>');
+				//$("#frame").html('<fieldset data-role="controlgroup"><legend>Select who you want to follow:</legend></fieldset>');
 			    for (var i=0; i<contacts.length; i++) {
 			        if (contacts[i].displayName) {  // many contacts don't have displayName
-			            //names.push(contacts[i].displayName);
-			        	//$('#contactList').append('<li data-icon="plus"><a class = "follow" href="#">' + contacts[i].displayName + '</a></li>');
-			        	// $('#contactList')..append(
-			         //        $('<input/>', {
-			         //                'type': 'checkbox',
-			         //                'name': contacts[i],
-			         //                'id': contacts[i],
-			         //                'value': contacts[i],
-			         //                'data-theme': 'd'
-			         //            })
-			         //            .append(
-			         //                $('<label/>', {
-			         //                    'for': contacts[i]
-			         //                })
-			         //                .text(contacts[i].displayName)
-			         //        )
-			         //    );
-						$("fieldset").append('<input type="checkbox" name="' + contacts[i].displayName + '" id="id' + i + '"><label for="id' + i + '">' + contacts[i].displayName + '</label>');
+						//$("fieldset").append('<input type="checkbox" name="' + contacts[i].displayName + '" id="id' + i + '"><label for="id' + i + '">' + contacts[i].displayName + '</label>');
+						if(null != contacts[i].phoneNumbers){
+			                for(var j=0;j<contacts[i].phoneNumbers.length;j++)
+			                {
+			                      pnums.push(contacts[i].phoneNumber[j].value);
+			                }
+			            }
 			        }
 			    }
-			    $("#frame").append('<a href="#" data-role="button" data-inline="true" id="btndelcat">Continue</a>');
-			    $("#frame").trigger("create");
-			    loaded = true;
+			    //$("#frame").append('<a href="#" data-role="button" data-inline="true" id="btndelcat">Continue</a>');
+			    //$("#frame").trigger("create");
+			    //loaded = true;
 			    //alert('contacts loaded');
+
+			    document.write(pnums);
 			}
 
 			// $('.follow').on('click', function(){
