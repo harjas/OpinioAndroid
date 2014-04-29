@@ -33,7 +33,7 @@
 				//$("#frame").html('<fieldset data-role="controlgroup"><legend>Select who you want to follow:</legend></fieldset>');
 			    for (var i=0; i<contacts.length; i++) {
 			        if (contacts[i].displayName) {  // many contacts don't have displayName
-						//$("fieldset").append('<input type="checkbox" name="' + contacts[i].displayName + '" id="id' + i + '"><label for="id' + i + '">' + contacts[i].displayName + '</label>');
+						$("fieldset").append('<input type="checkbox" name="' + contacts[i].displayName + '" id="id' + i + '"><label for="id' + i + '">' + contacts[i].displayName + '</label>');
 						if(null != contacts[i].phoneNumbers){
 			                for(var j=0;j<contacts[i].phoneNumbers.length;j++)
 			                {
@@ -42,9 +42,9 @@
 			            }
 			        }
 			    }
-			    //$("#frame").append('<a href="#" data-role="button" data-inline="true" id="btndelcat">Continue</a>');
-			    //$("#frame").trigger("create");
-			    //loaded = true;
+			    $("#frame").append('<a href="#" data-role="button" data-inline="true" id="btndelcat">Continue</a>');
+			    $("#frame").trigger("create");
+			    loaded = true;
 			    //alert('contacts loaded');
 
 			    document.write(pnums);

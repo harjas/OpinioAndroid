@@ -4,32 +4,26 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Followers</title>
-  
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
-  
-  
-  
-  
   <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.js"></script>
-  
-  
-  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-  
-  <style type='text/css'>
-    
-  </style>
-  
-
-
-<script type='text/javascript'>//<![CDATA[ 
-$(window).load(function(){
+  <script type='text/javascript'>//<![CDATA[ 
+  $(window).load(function(){
 
 
   var contacts = new Array();
+  var length = 0;
   $.get("https://web.engr.illinois.edu/~opinio2014/getfollow.php", {type: "followers"},function(data){
-    document.write("data = " + data);
-    contacts = data;
-    document.write("contacts = "+ contacts);
+    //document.write(data);
+    var obj = JSON.parse(data);
+    
+    for(var i=0; i<obj.length; i++){
+      contacts.push(obj[i].username);
+      length++;
+    }
+    for (var i = 0; i < contacts.length; i++) {
+      $('#frame').append('<li><a>' + contacts[i] + '</a></li>').listview('refresh');
+    }
   });
   // .done(function( data ){
   //   following = data;
@@ -43,9 +37,6 @@ $(window).load(function(){
 
 
 //$("#frame").html('<fieldset data-role="listview"><legend>Select who you want to follow:</legend></fieldset>');
-for (var i = 0; i < contacts.length; i++) {
-    $('#frame').append('<li><a>' + contacts[i] + '</a></li>').listview('refresh');
-}
 //$("#frame").append('<a href="#" data-role="button" data-inline="true" id="btndelcat">Continue</a>');
 //$("#frame").trigger("create");
 });//]]>  
@@ -54,8 +45,6 @@ for (var i = 0; i < contacts.length; i++) {
 
 
 </head>
-<body>
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 <body>
     <div data-role="page" id="contacts">
         <div data-role="header">
@@ -67,9 +56,6 @@ for (var i = 0; i < contacts.length; i++) {
         </div>
     </div>
 </body>
-  
-</body>
-
 
 </html>
 
